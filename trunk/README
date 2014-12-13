@@ -1,0 +1,9 @@
+1) Hibernate app with spring
+2) Using Generic Dao for CRUD
+3) Connection using 
+   org.springframework.orm.hibernate4.LocalSessionFactoryBean
+   org.springframework.orm.hibernate4.HibernateTransactionManager
+4) One-to-Many Mapping
+5) Many-to-Many Mapping with delete either relation
+
+   
