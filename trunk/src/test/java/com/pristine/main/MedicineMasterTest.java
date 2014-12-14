@@ -1,6 +1,8 @@
 package com.pristine.main;
 
 
+import java.util.Date;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -10,6 +12,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.pristine.domain.MedicineMasterEntity;
 import com.pristine.service.IMedicineMasterService;
+import com.pristine.vo.MedicineMasterVO;
 
 public class MedicineMasterTest {
 
@@ -29,52 +32,61 @@ public class MedicineMasterTest {
 	}
 	@Test
 	public void createMedicineMaster(){
-		MedicineMasterEntity entity = new MedicineMasterEntity();
+		MedicineMasterVO vo = new MedicineMasterVO();
 		
-		
-		Integer id = emService.createMedicineMaster(entity);
+		Integer id = emService.createMedicineMaster(vo);
 		
 		Assert.assertTrue(id>=0);
 	}
 	
 	@Test
 	public void updateMedicineMaster(){
-		MedicineMasterEntity entity = new MedicineMasterEntity();
+		MedicineMasterVO vo = new MedicineMasterVO();
 		
 		
-		emService.createMedicineMaster(entity);
+		Integer id = emService.createMedicineMaster(vo);
+		vo.setId(id);
 		
+		vo.setPower(13);
+		emService.updateMedicineMaster(vo);
 		
-		
-		emService.updateMedicineMaster(entity);
-		
-		//Assert.assertEquals(entity.getCatTypeName(), "Doctor");
+		Assert.assertEquals(vo.getPower(),13);
 		
 		
 	}
 	
 	@Test
 	public void deleteMedicineMaster(){
-		MedicineMasterEntity entity = new MedicineMasterEntity();
+		MedicineMasterVO vo = new MedicineMasterVO();
 		
 		
-		Integer id = emService.createMedicineMaster(entity);
+		Integer id = emService.createMedicineMaster(vo);
 		
-		MedicineMasterEntity masterEntity = emService.getMedicineMasterById(id);
+		MedicineMasterVO newVO = emService.getMedicineMasterById(id);
+		newVO.setId(id);
+		emService.deleteMedicineMaster(newVO);
 		
-		emService.deleteMedicineMaster(masterEntity);
+		newVO = emService.getMedicineMasterById(id);
 		
-		MedicineMasterEntity masterEntity1 = emService.getMedicineMasterById(id);
-		
-		Assert.assertTrue(masterEntity1 == null);
+		Assert.assertTrue(newVO == null);
 		
 		
 	}
 	
 	
-	private MedicineMasterEntity createMedicineMasterEntity(){
+	private MedicineMasterVO createMedicineMasterEntity(){
 		
-		return null;
+		MedicineMasterVO vo =new MedicineMasterVO();
+		vo.setBatchNo("batchNo");
+		vo.setCreatedBy(1);
+		vo.setCreatedOn(new Date());
+		vo.setMedicineName("medicineName");
+		vo.setModificationOn(new Date());
+		vo.setModifiedBy(1);
+		vo.setPower(12);
+		vo.setRate(123.33f);
+		vo.setStatus(1);
+		return vo;
 		
 	}
 }

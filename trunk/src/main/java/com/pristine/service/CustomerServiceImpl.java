@@ -6,6 +6,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.pristine.dao.ICustomerDao;
 import com.pristine.domain.CustomerEntity;
+import com.pristine.util.EntityToVOConverter;
+import com.pristine.util.VOToEntityConverter;
+import com.pristine.vo.CustomerVO;
 
 @Service("customerService")
 @Transactional
@@ -15,29 +18,30 @@ public class CustomerServiceImpl implements ICustomerService{
 	ICustomerDao customerDao;
 
 	@Override
-	public CustomerEntity findCustomerById(Integer id) {
-		CustomerEntity ce= customerDao.find(id);
-		System.out.println(ce.getPhones());
-		return ce;
+	public CustomerVO findCustomerById(Integer id) {
+		CustomerEntity entity= customerDao.find(id);
+		CustomerVO customerVO = EntityToVOConverter.convert(entity);
+		return customerVO;
 	}
 
 	@Override
-	public Integer updateCustomer(CustomerEntity customer) {
-		customerDao.update(customer);;
-		return customer.getId();
+	public Integer updateCustomer(CustomerVO customerVO) {
+		CustomerEntity entity = VOToEntityConverter.convert(customerVO);
+		customerDao.update(entity);;
+		return entity.getId();
 	}
 
 	@Override
-	public void deleteCustomer(CustomerEntity customer) {
-		
-		
+	public void deleteCustomer(CustomerVO customerVO) {
+		CustomerEntity entity = VOToEntityConverter.convert(customerVO);
+		customerDao.remove(entity);
 	}
 
 	@Override
-	public Integer persistCustomer(CustomerEntity customer) {
-		customerDao.add(customer);
-		System.out.println(customer.getId());
-		return customer.getId();
+	public Integer persistCustomer(CustomerVO customerVO) {
+		CustomerEntity entity = VOToEntityConverter.convert(customerVO);
+		customerDao.add(entity);
+		return entity.getId();
 	}
 
 	@Override

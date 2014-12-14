@@ -2,17 +2,17 @@ package com.pristine.service;
 
 import java.util.List;
 
-import com.pristine.domain.DepartmentMasterEntity;
+import com.pristine.vo.DepartmentMasterVO;
 
 public interface IDepartmentMasterService {
 	
-	Integer addDepartment(DepartmentMasterEntity departmentMaster);
+	Integer addDepartment(DepartmentMasterVO departmentMaster);
 
-	void updateDepartment(DepartmentMasterEntity departmentMaster);
+	void updateDepartment(DepartmentMasterVO departmentMaster);
 
-	void removeDepartment(DepartmentMasterEntity departmentMaster);
+	void removeDepartment(DepartmentMasterVO departmentMaster);
 
-	List<DepartmentMasterEntity> list();
+	List<DepartmentMasterVO> list();
 
-	DepartmentMasterEntity findDepartment(Integer id);
+	DepartmentMasterVO findDepartment(Integer id);
 }

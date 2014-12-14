@@ -1,11 +1,14 @@
 package com.pristine.service;
 
-import com.pristine.dao.IDoctorMasterDao;
-import com.pristine.domain.DoctorMasterEntity;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.pristine.dao.IDoctorMasterDao;
+import com.pristine.domain.DoctorMasterEntity;
+import com.pristine.util.EntityToVOConverter;
+import com.pristine.util.VOToEntityConverter;
+import com.pristine.vo.DoctorMasterVO;
 
 
 @Service("doctorMasterService")
@@ -16,25 +19,30 @@ public class DoctorMasterServiceImpl implements IDoctorMasterService{
 	private IDoctorMasterDao doctorMasterDao;
 	
 	@Override
-	public Integer createDoctorMaster(DoctorMasterEntity doctorMaster){
+	public Integer createDoctorMaster(DoctorMasterVO doctorMasterVO){
+		DoctorMasterEntity doctorMaster = VOToEntityConverter.convert(doctorMasterVO);
 		doctorMasterDao.add(doctorMaster);
-		return null;
+		return doctorMaster.getId();
 	}
 	
 	@Override
-	public Integer updateDoctorMaster(DoctorMasterEntity doctorMaster){
+	public Integer updateDoctorMaster(DoctorMasterVO doctorMasterVO){
+		DoctorMasterEntity doctorMaster = VOToEntityConverter.convert(doctorMasterVO);
 		doctorMasterDao.update(doctorMaster);
-		return null;
+		return doctorMaster.getId();
 	}
 	
 	@Override
-	public void deleteDoctorMaster(DoctorMasterEntity doctorMaster){
+	public void deleteDoctorMaster(DoctorMasterVO doctorMasterVO){
+		DoctorMasterEntity doctorMaster = VOToEntityConverter.convert(doctorMasterVO);
 		doctorMasterDao.remove(doctorMaster);
 	}
 	
 	@Override
-	public DoctorMasterEntity getDoctorMaster(Integer id){
-		return doctorMasterDao.find(id);
+	public DoctorMasterVO getDoctorMaster(Integer id){
+		DoctorMasterEntity doctorMaster = doctorMasterDao.find(id);
+		DoctorMasterVO vo = EntityToVOConverter.convert(doctorMaster);
+		return vo;
 	}
 	
 }

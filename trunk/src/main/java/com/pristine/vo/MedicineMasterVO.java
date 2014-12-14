@@ -13,7 +13,7 @@ public class MedicineMasterVO {
 	
 	private float rate;
 	
-	private char status;
+	private Integer status;
 	
 	private Date createdOn;
 
@@ -107,11 +107,11 @@ public class MedicineMasterVO {
 		this.rate = rate;
 	}
 
-	public char getStatus() {
+	public Integer getStatus() {
 		return status;
 	}
 
-	public void setStatus(char status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
 

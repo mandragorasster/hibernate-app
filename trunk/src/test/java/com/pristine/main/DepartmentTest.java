@@ -10,6 +10,7 @@ import com.pristine.domain.DepartmentMasterEntity;
 import com.pristine.domain.EmployeeEntity;
 import com.pristine.service.IEmployeeService;
 import com.pristine.service.IDepartmentMasterService;
+import com.pristine.vo.DepartmentMasterVO;
 
 public class DepartmentTest {
 	private IDepartmentMasterService emService = null;
@@ -28,17 +29,17 @@ public class DepartmentTest {
 	}
 	@Test
 	public void createDoctorMaster() {
-		DepartmentMasterEntity em = new DepartmentMasterEntity("qweIT");
-		Integer id = emService.addDepartment(em);
+		DepartmentMasterVO vo = new DepartmentMasterVO("qweIT");
+		Integer id = emService.addDepartment(vo);
 		
-		DepartmentMasterEntity entity = emService.findDepartment(id);
-		entity.setDeptName("India");
-		
-		
-		emService.updateDepartment(entity);
+		DepartmentMasterVO newVO = emService.findDepartment(id);
+		newVO.setDeptName("India");
 		
 		
-		emService.removeDepartment(entity);
+		emService.updateDepartment(newVO);
+		
+		
+		emService.removeDepartment(newVO);
 		
 		
 		

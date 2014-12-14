@@ -11,6 +11,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.pristine.domain.CustomerEntity;
 import com.pristine.domain.PhoneNumberEntity;
 import com.pristine.service.ICustomerService;
+import com.pristine.vo.CustomerVO;
+import com.pristine.vo.PhoneNumberVO;
 
 public class CustomerTest {
 	private ICustomerService emService = null;
@@ -30,16 +32,16 @@ public class CustomerTest {
 	@Test
 	public void createCustomer() {
 		
-		CustomerEntity entity = new CustomerEntity("Shambhu");
-		entity.getPhones().add(new PhoneNumberEntity("(8837199181"));
-		entity.getPhones().add(new PhoneNumberEntity("(8981518899"));
-		Integer id = emService.persistCustomer(entity);
+		CustomerVO vo = new CustomerVO("Shambhu");
+		vo.getPhones().add(new PhoneNumberVO("(8837199181"));
+		vo.getPhones().add(new PhoneNumberVO("(8981518899"));
+		Integer id = emService.persistCustomer(vo);
 		
-		CustomerEntity customerEntity=emService.findCustomerById(id);
+		CustomerVO customerVo=emService.findCustomerById(id);
 		
-		List<PhoneNumberEntity> phones= customerEntity.getPhones();
+		List<PhoneNumberVO> phones= customerVo.getPhones();
 		
-		for(PhoneNumberEntity entity2:phones){
+		for(PhoneNumberVO entity2:phones){
 			System.out.println("Deleting phone id :"+entity2.getId());
 			emService.deletePhone(entity2.getId());
 			break;
