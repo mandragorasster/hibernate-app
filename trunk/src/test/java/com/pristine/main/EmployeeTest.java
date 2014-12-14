@@ -7,15 +7,15 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.pristine.domain.EmployeeEntity;
-import com.pristine.service.EmployeeService;
+import com.pristine.service.IEmployeeService;
 
 public class EmployeeTest {
-	private EmployeeService emService = null;
+	private IEmployeeService emService = null;
 	private ConfigurableApplicationContext context = null; 
 	@Before
 	public void setUp() throws Exception {
 		context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		emService = (EmployeeService) context.getBean("employeeService");
+		emService = (IEmployeeService) context.getBean("employeeService");
 		
 	}
 

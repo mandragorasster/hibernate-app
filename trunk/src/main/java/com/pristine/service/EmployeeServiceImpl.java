@@ -8,7 +8,7 @@ import com.pristine.dao.EmployeeDAO;
 import com.pristine.domain.EmployeeEntity;
 
 @Service("employeeService")
-public class EmployeeServiceImpl implements EmployeeService{
+public class EmployeeServiceImpl implements IEmployeeService{
 
 	@Autowired
 	EmployeeDAO employeeDAO;

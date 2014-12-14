@@ -2,7 +2,7 @@ package com.pristine.service;
 
 import com.pristine.domain.EmployeeEntity;
 
-public interface EmployeeService {
+public interface IEmployeeService {
 
 	String persistEmployee(EmployeeEntity employee);
 
