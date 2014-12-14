@@ -1,16 +1,16 @@
 package com.pristine.service;
 
-import com.pristine.domain.MedicineMasterEntity;
+import com.pristine.vo.MedicineMasterVO;
 
 
 public interface IMedicineMasterService {
 
-	public Integer createMedicineMaster(MedicineMasterEntity medicineMaster);
+	public Integer createMedicineMaster(MedicineMasterVO medicineMaster);
 	
-	public Integer updateMedicineMaster(MedicineMasterEntity medicineMaster);
+	public Integer updateMedicineMaster(MedicineMasterVO medicineMaster);
 	
-	public void deleteMedicineMaster(MedicineMasterEntity medicineMaster);
+	public void deleteMedicineMaster(MedicineMasterVO medicineMaster);
 	
-	public MedicineMasterEntity getMedicineMasterById(Integer id);
+	public MedicineMasterVO getMedicineMasterById(Integer id);
 	
 }

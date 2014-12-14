@@ -13,7 +13,7 @@ public class MedicineMasterEntity {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="MEDICINE_ID")
-	private int id;
+	private Integer id;
 	
 	@Column(name="MEDICINE_NAME")
 	private String medicineName;
@@ -28,7 +28,7 @@ public class MedicineMasterEntity {
 	private float rate;
 	
 	@Column(name="STATUS")
-	private char status;
+	private Integer status;
 	
 	@Column(name = "CREATED_ON")
 	private Date createdOn;
@@ -58,11 +58,11 @@ public class MedicineMasterEntity {
 		return power;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -126,11 +126,11 @@ public class MedicineMasterEntity {
 		this.rate = rate;
 	}
 
-	public char getStatus() {
+	public Integer getStatus() {
 		return status;
 	}
 
-	public void setStatus(char status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
 

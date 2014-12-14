@@ -18,7 +18,7 @@ public class DoctorMasterEntity {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator= "doctorid-gen")
 	@SequenceGenerator(name = "doctorid-gen", sequenceName = "DOCTOR_SEQ", allocationSize = 1, initialValue = 0)
 	@Column(name="DOCTOR_ID")
-	private int id;
+	private Integer id;
 
 	@Column(name = "FIRST_NAME")
 	private String firstName;
@@ -57,11 +57,11 @@ public class DoctorMasterEntity {
 	@Column(name = "MODIFIED_BY")
 	private Integer modifiedBy;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

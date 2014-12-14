@@ -37,6 +37,7 @@
 				<value>com.pristine.domain.CustomerEntity</value>
 				<value>com.pristine.domain.CategoryTypeMasterEntity</value>
 				<value>com.pristine.domain.DoctorMasterEntity</value>
+				<value>com.pristine.domain.MedicineMasterEntity</value>
 
 			</list>
 		</property>

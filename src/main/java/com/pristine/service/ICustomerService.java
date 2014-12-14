@@ -1,16 +1,16 @@
 package com.pristine.service;
 
-import com.pristine.domain.CustomerEntity;
+import com.pristine.vo.CustomerVO;
 
 public interface ICustomerService {
 
-	CustomerEntity findCustomerById(Integer id);
+	CustomerVO findCustomerById(Integer id);
 
-	Integer updateCustomer(CustomerEntity customer);
+	Integer updateCustomer(CustomerVO customer);
 
-	void deleteCustomer(CustomerEntity customer);
+	void deleteCustomer(CustomerVO customer);
 
-	Integer persistCustomer(CustomerEntity customer);
+	Integer persistCustomer(CustomerVO customer);
 	
 	public void deletePhone(Integer id);
 }

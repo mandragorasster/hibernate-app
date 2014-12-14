@@ -12,6 +12,10 @@ import com.pristine.domain.DepartmentMasterEntity;
 import com.pristine.domain.DoctorMasterEntity;
 import com.pristine.service.IDepartmentMasterService;
 import com.pristine.service.IDoctorMasterService;
+import com.pristine.util.EntityToVOConverter;
+import com.pristine.util.VOToEntityConverter;
+import com.pristine.vo.DepartmentMasterVO;
+import com.pristine.vo.DoctorMasterVO;
 
 public class DoctorMasterTest {
 
@@ -35,24 +39,24 @@ public class DoctorMasterTest {
 	@Test
 	public void createDoctorMaster(){
 		
-		DepartmentMasterEntity departmentMasterEntity = new DepartmentMasterEntity("Skin1");
-		Integer id= depService.addDepartment(departmentMasterEntity);
-		departmentMasterEntity.setDeptId(id);
-		DoctorMasterEntity entity = new DoctorMasterEntity();
-		entity.setActive(1);
-		entity.setContactNo("9883719918");
-		entity.setCreatedBy(1);
-		entity.setCreatedOn(new Date());
-		entity.setDegree("PH.d.");
-		entity.setDepartment(departmentMasterEntity);
-		entity.setFirstName("Shambhu");
-		entity.setLastName("Kumar");
-		entity.setMiddleName("");
-		entity.setModificationOn(new Date());
-		entity.setModifiedBy(1);
-		entity.setSpeciality("Itch");
+		DepartmentMasterVO departmentVO = new DepartmentMasterVO("Skin1");
+		Integer id= depService.addDepartment(departmentVO);
+		departmentVO.setDeptId(id);
+		DoctorMasterVO doctorVO = new DoctorMasterVO();
+		doctorVO.setActive(1);
+		doctorVO.setContactNo("9883719918");
+		doctorVO.setCreatedBy(1);
+		doctorVO.setCreatedOn(new Date());
+		doctorVO.setDegree("PH.d.");
+		doctorVO.setDepartment((departmentVO));
+		doctorVO.setFirstName("Shambhu");
+		doctorVO.setLastName("Kumar");
+		doctorVO.setMiddleName("");
+		doctorVO.setModificationOn(new Date());
+		doctorVO.setModifiedBy(1);
+		doctorVO.setSpeciality("Itch");
 		
-		Integer id1 = emService.createDoctorMaster(entity);
+		Integer id1 = emService.createDoctorMaster(doctorVO);
 		
 		//Assert.assertTrue(id>=0);
 	}
