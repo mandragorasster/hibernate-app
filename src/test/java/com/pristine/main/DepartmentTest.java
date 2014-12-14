@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.pristine.domain.DepartmentMasterEntity;
 import com.pristine.domain.EmployeeEntity;
-import com.pristine.service.EmployeeService;
+import com.pristine.service.IEmployeeService;
 import com.pristine.service.IDepartmentMasterService;
 
 public class DepartmentTest {

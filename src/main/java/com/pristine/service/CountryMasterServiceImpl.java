@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.pristine.dao.ICountryMasterDao;
 import com.pristine.domain.CountryMasterEntity;
 import com.pristine.domain.StateMasterEntity;
-import com.pristine.util.GenericDaoImpl;
 
 @Service("countryMasterService")
 @Transactional

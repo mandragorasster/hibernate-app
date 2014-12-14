@@ -4,7 +4,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.pristine.domain.EmployeeEntity;
-import com.pristine.service.EmployeeService;
+import com.pristine.service.IEmployeeService;
 
 public class App {
 
@@ -16,7 +16,7 @@ public class App {
 		em.setName("John");
 		em.setAge(35);
 		
-		EmployeeService emService = (EmployeeService) context.getBean("employeeService");
+		IEmployeeService emService = (IEmployeeService) context.getBean("employeeService");
 		emService.persistEmployee(em);
 		System.out.println("Updated age :" + emService.findEmployeeById("123").getAge());		
 		em.setAge(32);

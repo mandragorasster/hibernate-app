@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.pristine.domain.CountryMasterEntity;
 import com.pristine.domain.StateMasterEntity;
-import com.pristine.util.GenericDao;
 
 public interface ICountryMasterService {
 	
