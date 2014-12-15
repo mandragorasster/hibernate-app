@@ -9,6 +9,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.pristine.domain.CountryMasterEntity;
 import com.pristine.domain.StateMasterEntity;
 import com.pristine.service.ICountryMasterService;
+import com.pristine.vo.CountryMasterVO;
+import com.pristine.vo.StateMasterVO;
 
 public class CountryTest {
 	private ICountryMasterService emService = null;
@@ -27,14 +29,14 @@ public class CountryTest {
 	}
 	@Test
 	public void createCountryMaster() {
-		CountryMasterEntity entity = new CountryMasterEntity("India");
-		entity.getStateMasters().add(new StateMasterEntity("Bihar"));
-		entity.getStateMasters().add(new StateMasterEntity("WB"));
+		CountryMasterVO entity = new CountryMasterVO("India");
+		entity.getStateMasters().add(new StateMasterVO("Bihar"));
+		entity.getStateMasters().add(new StateMasterVO("WB"));
 		
 		System.out.println("Test");
-		//Integer id = emService.createCountryMaster(entity);
+		Integer id = emService.createCountryMaster(entity);
 		
-		//System.out.println("Id: "+id);
+		System.out.println("Id: "+id);
 		
 		
 		

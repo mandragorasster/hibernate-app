@@ -2,19 +2,19 @@ package com.pristine.service;
 
 import java.util.List;
 
-import com.pristine.domain.CountryMasterEntity;
-import com.pristine.domain.StateMasterEntity;
+import com.pristine.vo.CountryMasterVO;
+import com.pristine.vo.StateMasterVO;
 
 public interface ICountryMasterService {
 	
-	public CountryMasterEntity getCountryMaster(Integer id);
+	public CountryMasterVO getCountryMaster(Integer id);
 	
 	public void deleteCountryMaster(Integer id);
 	
-	public void updateCountryMaster(CountryMasterEntity countryMaster);
+	public void updateCountryMaster(CountryMasterVO countryMaster);
 	
-	public Integer createCountryMaster(CountryMasterEntity countryMaster);
+	public Integer createCountryMaster(CountryMasterVO countryMaster);
 	
-	public List<StateMasterEntity> getStatesByCountryId(Integer countryId);
+	public List<StateMasterVO> getStatesByCountryId(Integer countryId);
 
 }

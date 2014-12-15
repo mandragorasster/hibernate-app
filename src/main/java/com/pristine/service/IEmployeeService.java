@@ -1,14 +1,14 @@
 package com.pristine.service;
 
-import com.pristine.domain.EmployeeEntity;
+import com.pristine.vo.EmployeeVO;
 
 public interface IEmployeeService {
 
-	String persistEmployee(EmployeeEntity employee);
+	String persistEmployee(EmployeeVO employee);
 
-	EmployeeEntity findEmployeeById(String id);
+	EmployeeVO findEmployeeById(String id);
 
-	String updateEmployee(EmployeeEntity employee);
+	String updateEmployee(EmployeeVO employee);
 
-	void deleteEmployee(EmployeeEntity employee);
+	void deleteEmployee(EmployeeVO employee);
 }

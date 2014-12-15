@@ -8,7 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.pristine.dao.ICountryMasterDao;
 import com.pristine.domain.CountryMasterEntity;
-import com.pristine.domain.StateMasterEntity;
+import com.pristine.util.EntityToVOConverter;
+import com.pristine.util.VOToEntityConverter;
+import com.pristine.vo.CountryMasterVO;
+import com.pristine.vo.StateMasterVO;
 
 @Service("countryMasterService")
 @Transactional
@@ -17,9 +20,10 @@ public class CountryMasterServiceImpl implements ICountryMasterService{
 	@Autowired
 	ICountryMasterDao countryMasterDao;
 	@Override
-	public CountryMasterEntity getCountryMaster(Integer id) {
-		
-		return new CountryMasterEntity();
+	public CountryMasterVO getCountryMaster(Integer id) {
+		CountryMasterEntity countryMaster = countryMasterDao.find(id);
+		CountryMasterVO masterVO= EntityToVOConverter.convert(countryMaster);
+		return masterVO;
 	}
 
 	@Override
@@ -30,20 +34,21 @@ public class CountryMasterServiceImpl implements ICountryMasterService{
 	}
 
 	@Override
-	public void updateCountryMaster(CountryMasterEntity countryMaster) {
+	public void updateCountryMaster(CountryMasterVO masterVO) {
+		CountryMasterEntity countryMaster= VOToEntityConverter.convert(masterVO);
 		countryMasterDao.update(countryMaster);
 		
 	}
 
 	@Override
-	public Integer createCountryMaster(CountryMasterEntity countryMaster) {
+	public Integer createCountryMaster(CountryMasterVO masterVO) {
+		CountryMasterEntity countryMaster= VOToEntityConverter.convert(masterVO);
 		countryMasterDao.add(countryMaster);
-		System.out.println(countryMaster.getId());
 		return countryMaster.getId();
 	}
 
 	@Override
-	public List<StateMasterEntity> getStatesByCountryId(Integer countryId) {
+	public List<StateMasterVO> getStatesByCountryId(Integer countryId) {
 		
 		return null;
 	}

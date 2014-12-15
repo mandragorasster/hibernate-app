@@ -6,6 +6,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.pristine.dao.EmployeeDAO;
 import com.pristine.domain.EmployeeEntity;
+import com.pristine.util.EntityToVOConverter;
+import com.pristine.util.VOToEntityConverter;
+import com.pristine.vo.EmployeeVO;
 
 @Service("employeeService")
 public class EmployeeServiceImpl implements IEmployeeService{
@@ -15,7 +18,8 @@ public class EmployeeServiceImpl implements IEmployeeService{
 	
 	@Override
 	@Transactional
-	public String persistEmployee(EmployeeEntity employee) {
+	public String persistEmployee(EmployeeVO employeeVO) {
+		EmployeeEntity employee = VOToEntityConverter.convert(employeeVO); 
 		employeeDAO.add(employee);
 		return employee.getId();
 		
@@ -23,20 +27,23 @@ public class EmployeeServiceImpl implements IEmployeeService{
 
 	@Override
 	@Transactional
-	public String updateEmployee(EmployeeEntity employee) {
+	public String updateEmployee(EmployeeVO employeeVO) {
+		EmployeeEntity employee = VOToEntityConverter.convert(employeeVO); 
 		employeeDAO.update(employee);
 		return employee.getId();
 		
 	}
 	@Override
 	@Transactional
-	public EmployeeEntity findEmployeeById(String id) {
-		return employeeDAO.find(id);
+	public EmployeeVO findEmployeeById(String id) {
+		EmployeeEntity employee =  employeeDAO.find(id);
+		return EntityToVOConverter.convert(employee);
 	}
 
 	@Override
 	@Transactional
-	public void deleteEmployee(EmployeeEntity employee) {
+	public void deleteEmployee(EmployeeVO employeeVO) {
+		EmployeeEntity employee = VOToEntityConverter.convert(employeeVO); 
 		employeeDAO.remove(employee);
 		
 	}
