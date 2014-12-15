@@ -8,8 +8,6 @@ import org.junit.Test;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.pristine.domain.CustomerEntity;
-import com.pristine.domain.PhoneNumberEntity;
 import com.pristine.service.ICustomerService;
 import com.pristine.vo.CustomerVO;
 import com.pristine.vo.PhoneNumberVO;

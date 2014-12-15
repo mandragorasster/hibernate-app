@@ -1,14 +1,5 @@
 package com.pristine.vo;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 
 public class StateMasterVO {
 	
@@ -16,7 +7,6 @@ public class StateMasterVO {
 	
 	private CountryMasterVO countryMaster;
 	
-	@Column(name="STATE_NAME")
 	private String stateName;
 
 	

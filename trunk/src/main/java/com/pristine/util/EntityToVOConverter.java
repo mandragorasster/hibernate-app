@@ -6,15 +6,19 @@ import java.util.List;
 import org.apache.commons.collections.CollectionUtils;
 
 import com.pristine.domain.CategoryTypeMasterEntity;
+import com.pristine.domain.CountryMasterEntity;
 import com.pristine.domain.CustomerEntity;
 import com.pristine.domain.DepartmentMasterEntity;
 import com.pristine.domain.DoctorMasterEntity;
+import com.pristine.domain.EmployeeEntity;
 import com.pristine.domain.MedicineMasterEntity;
 import com.pristine.domain.PhoneNumberEntity;
 import com.pristine.vo.CategoryTypeMasterVO;
+import com.pristine.vo.CountryMasterVO;
 import com.pristine.vo.CustomerVO;
 import com.pristine.vo.DepartmentMasterVO;
 import com.pristine.vo.DoctorMasterVO;
+import com.pristine.vo.EmployeeVO;
 import com.pristine.vo.MedicineMasterVO;
 import com.pristine.vo.PhoneNumberVO;
 
@@ -111,6 +115,7 @@ public class EntityToVOConverter {
 				volist.add(phonevo);
 			}
 		}
+		vo.setPhones(volist);
 		return vo;
 	}
 
@@ -118,8 +123,29 @@ public class EntityToVOConverter {
 		PhoneNumberVO vo = new PhoneNumberVO();
 		vo.setId(entity.getId());
 		vo.setPhNumber(entity.getPhNumber());
+/*		List<CustomerEntity> list = entity.getCustomers();
+		List<CustomerVO> volist = new ArrayList<CustomerVO>();
+		if(CollectionUtils.isNotEmpty(list)){
+			for(CustomerEntity customerEntity:list){
+				volist.add(EntityToVOConverter.convert(customerEntity));	
+			}
+		}
+		vo.setCustomers(volist);
+*/		return vo;
+	}
 
-		return vo;
+	public static EmployeeVO convert(EmployeeEntity employee) {
+		EmployeeVO employeeVO = new EmployeeVO();
+		employeeVO.setAge(employee.getAge());
+		employeeVO.setId(employee.getId());
+		employeeVO.setName(employee.getName());
+		
+		return employeeVO;
+	}
+
+	public static CountryMasterVO convert(CountryMasterEntity countryMaster) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

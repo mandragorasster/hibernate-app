@@ -6,8 +6,8 @@ import org.junit.Test;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.pristine.domain.EmployeeEntity;
 import com.pristine.service.IEmployeeService;
+import com.pristine.vo.EmployeeVO;
 
 public class EmployeeTest {
 	private IEmployeeService emService = null;
@@ -26,7 +26,7 @@ public class EmployeeTest {
 	}
 	@Test
 	public void createDoctorMaster() {
-		EmployeeEntity em = new EmployeeEntity();
+		EmployeeVO em = new EmployeeVO();
 		//em.setId("123");
 		em.setName("John");
 		em.setAge(35);
